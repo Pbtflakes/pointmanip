@@ -36,6 +36,26 @@
 
 (defn point_info
   [p1 p2]
-  (println "The distance between the given points is "(dist_main p1 p2)".")
-  (println "The midpoint of the given points is "(midpt_main p1 p2)"."))
+  (println "The distance between the given points is"(dist_main p1 p2)".")
+  (println "The midpoint of the given points is"(midpt_main p1 p2)"."))
+
+; Slope functions
+(defn slope_indiv
+  [p1 p2 addr]
+  (- (get p2 addr) (get p1 addr)))
+
+(defn slope_main
+  [p1 p2]
+  (/ (slope_indiv p1 p2 1) (slope_indiv p1 p2 0)))
+
+; Finds the slope of the line perpendicular to the line between the 2 given points
+(defn slope_perp
+  [p1 p2]
+  (->> (slope_main p1 p2) (/ 1) (* -1)))
+
+; Finds y-intercept for perpendicular bisector
+(defn intercept_b
+  [p1 p2]
+  (->> (* (slope_perp p1 p2) (get (midpt_main p1 p2) 0))
+
 
