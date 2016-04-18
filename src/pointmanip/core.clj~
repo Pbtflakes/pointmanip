@@ -48,14 +48,15 @@
   [p1 p2]
   (/ (slope_indiv p1 p2 1) (slope_indiv p1 p2 0)))
 
-; Finds the slope of the line perpendicular to the line between the 2 given points
 (defn slope_perp
+  "Finds the slope of the line perpendicular to the line between the 2 given points"
   [p1 p2]
   (->> (slope_main p1 p2) (/ 1) (* -1)))
 
-; Finds y-intercept for perpendicular bisector
 (defn intercept_b
+  "Finds y-intercept for perpendicular bisector"
   [p1 p2]
-  (->> (* (slope_perp p1 p2) (get (midpt_main p1 p2) 0))
+  (->> (* (slope_perp p1 p2) (get (midpt_main p1 p2) 0) (/ (get (midpt_main p1 p2) 1)))))
+
 
 
