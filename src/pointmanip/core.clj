@@ -53,7 +53,7 @@
   [p1 p2]
   (->> (slope_main p1 p2) (/ 1) (* -1)))
 
-(defn intercept_b
+(defn intercept_perp
   "Finds y-intercept for perpendicular bisector"
   [p1 p2]
   (->> (* (slope_perp p1 p2) (get (midpt_main p1 p2) 0) (/ (get (midpt_main p1 p2) 1)))))
